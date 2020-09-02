@@ -12,6 +12,7 @@ public class User {
     @Column (name = "name")
     private String name;
 
+
     @Column (name = "lastName")
     private String lastName;
 

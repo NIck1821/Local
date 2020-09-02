@@ -66,6 +66,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+
     public List<User> getAllUsers() {
         List<User> listUsers = new ArrayList<>();
         try {

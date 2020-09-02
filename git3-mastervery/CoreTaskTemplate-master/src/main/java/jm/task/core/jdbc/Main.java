@@ -7,7 +7,7 @@ public class Main {
         // реализуйте алгоритм здесь
         UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
         userDaoHibernate.createUsersTable();
-        userDaoHibernate.saveUser("a", "fsdd", (byte) 45);
+        userDaoHibernate.saveUser("a", "fsfdd", (byte) 45);
         userDaoHibernate.saveUser("b", "fsdf", (byte) 45);
         userDaoHibernate.saveUser("v", "fsda", (byte) 45);
         userDaoHibernate.saveUser("g", "fsda", (byte) 45);
