@@ -9,7 +9,8 @@ import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
     private final Connection сonnection;
-    public UserDaoJDBCImpl()  {
+
+    public UserDaoJDBCImpl() {
         сonnection = Util.getConnection();
     }
 
@@ -70,7 +71,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public List<User> getAllUsers() {
         List<User> listUsers = new ArrayList<>();
         try {
-            try ( Statement statement = сonnection.createStatement()) {
+            try (Statement statement = сonnection.createStatement()) {
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM Users");
                 while (resultSet.next()) {
                     String name = resultSet.getString(2);

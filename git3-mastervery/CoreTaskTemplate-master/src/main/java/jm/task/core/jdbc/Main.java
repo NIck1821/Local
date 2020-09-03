@@ -7,11 +7,11 @@ public class Main {
         // реализуйте алгоритм здесь
         UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
         userDaoHibernate.createUsersTable();
-        userDaoHibernate.saveUser("a", "fsfdd", (byte) 45);
-        userDaoHibernate.saveUser("b", "fsdf", (byte) 45);
-        userDaoHibernate.saveUser("v", "fsda", (byte) 45);
-        userDaoHibernate.saveUser("g", "fsda", (byte) 45);
-        for(int i = 0; i< 4 ; i++){
+        userDaoHibernate.saveUser("a", "g", (byte) 25);
+        userDaoHibernate.saveUser("b", "v", (byte) 30);
+        userDaoHibernate.saveUser("v", "b", (byte) 41);
+        userDaoHibernate.saveUser("g", "a", (byte) 56);
+        for (int i = 0; i < 4; i++) {
             System.out.println(userDaoHibernate.getAllUsers().get(i).getName());
         }
         userDaoHibernate.cleanUsersTable();

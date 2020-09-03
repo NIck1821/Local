@@ -28,21 +28,22 @@ public class Util {
     }
 
     private static SessionFactory sessionFactory;
+
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
                 Configuration config = new Configuration()
-                        .setProperty("hibernate.connector.driver_class",   "com.mysql.cj.jdbc.Driver")
-                        .setProperty("hibernate.connection.url",            "jdbc:mysql://localhost/store2?serverTimezone=Europe/Moscow&useSSL=false")
-                        .setProperty("hibernate.connection.username",      "root")
-                        .setProperty("hibernate.connection.password",      "password")
-                        .setProperty("hibernate.dialect",                  "org.hibernate.dialect.MySQL5Dialect")
-                        .setProperty("hibernate.hbm2dll.auto",             "create-drop")
-                       // .setProperty("hibernate.show_sql",                  "true")
+                        .setProperty("hibernate.connector.driver_class", "com.mysql.cj.jdbc.Driver")
+                        .setProperty("hibernate.connection.url", url)
+                        .setProperty("hibernate.connection.username", username)
+                        .setProperty("hibernate.connection.password", password)
+                        .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect")
+                        .setProperty("hibernate.hbm2dll.auto", "create-drop")
+                        // .setProperty("hibernate.show_sql",                  "true")
                         .addAnnotatedClass(jm.task.core.jdbc.model.User.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
-                sessionFactory = (SessionFactory) config.buildSessionFactory(serviceRegistry);
+                sessionFactory = config.buildSessionFactory(serviceRegistry);
             } catch (Exception e) {
                 System.out.println("failed : ");
                 e.printStackTrace();
