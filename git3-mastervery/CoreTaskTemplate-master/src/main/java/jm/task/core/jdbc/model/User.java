@@ -9,14 +9,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "Name")
     private String name;
 
 
-    @Column(name = "lastName")
+    @Column(name = "LastName")
     private String lastName;
 
-    @Column(name = "age")
+    @Column(name = "Age")
     private Byte age;
 
     public User() {

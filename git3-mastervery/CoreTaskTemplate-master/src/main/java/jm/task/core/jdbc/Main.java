@@ -1,20 +1,24 @@
 package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
+import jm.task.core.jdbc.service.UserService;
+import jm.task.core.jdbc.service.UserServiceImpl;
 
 public class Main {
     public static void main(String[] args) {
         // реализуйте алгоритм здесь
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
-        userDaoHibernate.createUsersTable();
-        userDaoHibernate.saveUser("a", "g", (byte) 25);
-        userDaoHibernate.saveUser("b", "v", (byte) 30);
-        userDaoHibernate.saveUser("v", "b", (byte) 41);
-        userDaoHibernate.saveUser("g", "a", (byte) 56);
+        UserService userService = new UserServiceImpl();
+        userService.createUsersTable();
+        userService.saveUser("Nick", "Mikheenkov", (byte) 25);
+        userService.saveUser("Alex", "Vologda", (byte) 30);
+        userService.saveUser("Sasha", "Richard", (byte) 41);
+        userService.saveUser("Kolya", "Rodionov", (byte) 56);
         for (int i = 0; i < 4; i++) {
-            System.out.println(userDaoHibernate.getAllUsers().get(i).getName());
+            System.out.println(userService.getAllUsers().get(i).getLastName());
         }
-        userDaoHibernate.cleanUsersTable();
-        userDaoHibernate.dropUsersTable();
+        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
+        System.out.println(userDaoHibernate.searchUserByName("Alex"));
+        userService.cleanUsersTable();
+        userService.dropUsersTable();
     }
 }

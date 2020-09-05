@@ -40,9 +40,7 @@ public class Util {
                         .setProperty("hibernate.hbm2dll.auto", "create-drop")
                         // .setProperty("hibernate.show_sql",                  "true")
                         .addAnnotatedClass(jm.task.core.jdbc.model.User.class);
-
-                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
-                sessionFactory = config.buildSessionFactory(serviceRegistry);
+                sessionFactory = config.buildSessionFactory();
             } catch (Exception e) {
                 System.out.println("failed : ");
                 e.printStackTrace();
