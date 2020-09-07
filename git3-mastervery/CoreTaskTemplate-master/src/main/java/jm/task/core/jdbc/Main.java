@@ -17,7 +17,7 @@ public class Main {
             System.out.println(userService.getAllUsers().get(i).getLastName());
         }
         UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
-        System.out.println(userDaoHibernate.getUserByName("Saha"));
+        System.out.println(userDaoHibernate.getUserByName("Nick"));
         userService.cleanUsersTable();
         userService.dropUsersTable();
     }

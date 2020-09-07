@@ -109,16 +109,16 @@ public class UserDaoHibernateImpl implements UserDao {
     }
 
     public User getUserByName(String name) {
-        List<User> users = null;
+        User user = null;
         Transaction tx = null;
         Session session = null;
         try {
             session = sessionFactory.openSession();
             tx = session.beginTransaction();
             Query query = session.createQuery("FROM User where name = :paramName").setParameter("paramName", name);
-            users = query.list();
+            user = (User) query.getSingleResult();
             tx.commit();
-            return  users.get(0);
+            return  user;
         } catch (Exception e) {
             return null;
         } finally {
